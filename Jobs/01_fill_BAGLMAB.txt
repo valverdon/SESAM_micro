@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --job-name="BAGLMAB"
+#SBATCH --account=aguisan_sometalp
+#SBATCH --nodes 1
+#SBATCH --time=10:00:00
+#SBATCH --cpus-per-task 1
+#SBATCH --mem=16G
+#SBATCH --array=249
+#SBATCH --output=%x.out
+#SBATCH --error=%x.err
+#SBATCH --mail-user valentin.verdon@unil.ch
+#SBATCH --mail-type BEGIN,END,FAIL
+
+
+module load gcc/10.4.0 r/4.2.1
+module load geos/3.9.1
+module load netcdf-c/4.8.1
+module load proj/5.2.0
+module load sqlite/3.38.5
+module load gdal/2.4.4-proj-5.2.0 #old one but new one not able to load "terra" package
+
+Rscript code/01_Fit.R $SLURM_ARRAY_TASK_ID BA GLM AB

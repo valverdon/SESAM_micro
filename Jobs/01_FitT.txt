@@ -1,0 +1,2 @@
+#!/bin/bash
+sbatch --job-name=$1$2$3 --account=aguisan_sometalp --time=30:00:00 --nodes=1 --cpus-per-task=1 --parsable 01_Fit.txt $1 $2 $3

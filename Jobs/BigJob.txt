@@ -1,0 +1,26 @@
+#! /bin/bash
+
+if [ "$1" == "BA" ] || [ "$1" == "all" ]; then
+
+fitBA=$(sbatch --job-name=FitBA$2$3 --account=aguisan_sometalp --time=08:40:00 --nodes=1 --cpus-per-task=1 --parsable 01_Fit.txt BA $2 $3)
+#evalBA=$(sbatch --job-name=EvalBA$2$3 --account=aguisan_sometalp --dependency=afterok:$fitBA --time=30:00:00 --nodes=1 --cpus-per-task=1 --parsable 02_Eval.txt BA $2 $3)
+#respCBA=$(sbatch --job-name=RespCBA$2$3 --account=aguisan_sometalp --dependency=afterok:$fitBA --time=00:20:00 --nodes=1 --cpus-per-task=1 --parsable 03_RespC.txt BA $2 $3)
+
+fi
+
+if [ "$1" == "FU" ] || [ "$1" == "all" ]; then
+
+fitFU=$(sbatch --job-name=FitFU$2$3 --account=aguisan_sometalp --time=08:40:00 --nodes=1 --cpus-per-task=1 --parsable 01_Fit.txt FU $2 $3)
+#evalFU=$(sbatch --job-name=EvalFU$2$3 --account=aguisan_sometalp --dependency=afterok:$fitFU --time=30:00:00 --nodes=1 --cpus-per-task=1 --parsable 02_Eval.txt FU $2 $3)
+#respCFU=$(sbatch --job-name=RespCFU$2$3 --account=aguisan_sometalp --dependency=afterok:$fitFU --time=00:20:00 --nodes=1 --cpus-per-task=1 --parsable 03_RespC.txt FU $2 $3)
+
+fi
+
+if [ "$1" == "PR" ] || [ "$1" == "all" ]; then
+
+fitPR=$(sbatch --job-name=FitPR$2$3 --account=aguisan_sometalp --time=05:30:00 --nodes=1 --cpus-per-task=1 --parsable 01_Fit.txt PR $2 $3)
+#evalPR=$(sbatch --job-name=EvalPR$2$3 --account=aguisan_sometalp --dependency=afterok:$fitPR --time=30:00:00 --nodes=1 --cpus-per-task=1 --parsable 02_Eval.txt PR $2 $3)
+#respCPR=$(sbatch --job-name=RespCPR$2$3 --account=aguisan_sometalp --dependency=afterok:$fitPR --time=00:20:00 --nodes=1 --cpus-per-task=1 --parsable 03_RespC.txt PR $2 $3)
+
+fi
+
